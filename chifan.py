@@ -3,7 +3,7 @@ import pyautogui
 import pyperclip
 import pytesseract
 from PIL import Image
-
+#-------吃饭助手1.0正式启动！！！---------
 # 等待时间到13.15
 target_time = "11:55"
 while time.strftime("%H:%M") != target_time:
