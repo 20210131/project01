@@ -5,9 +5,9 @@ import pytesseract
 from PIL import Image
 
 # 等待时间到13.15
-# target_time = "13:02"
-# while time.strftime("%H:%M") != target_time:
-#     time.sleep(2)  # 每2秒检查一次
+target_time = "11:55"
+while time.strftime("%H:%M") != target_time:
+    time.sleep(10)  # 每2秒检查一次
 
 # 打开指定文件
 file_path = r"E:\WEchat\WeChat.exe"
@@ -82,22 +82,48 @@ if dish1_position:
 else:
     print("无法找到搜索框")
 time.sleep(2)
-pyperclip.copy("拌粉")
+pyperclip.copy("牛肚拌粉")#pyautogui无法输入中文，使用复制粘贴代替
 pyautogui.hotkey('ctrl','v')
 pyautogui.press('enter')
 print("搜索完成")
-time.sleep(1)
+time.sleep(2)
 
-# 识别图片6.png#选品1
-spicy_image = "拌粉.png"
-spicy_position = pyautogui.locateCenterOnScreen(spicy_image)
-if spicy_position:
-    pyautogui.click(spicy_position)
+# # 识别图片6.png#选品1、、、暂时改为输入菜品选品
+# spicy_image = "拌粉.png"
+# spicy_position = pyautogui.locateCenterOnScreen(spicy_image)
+# if spicy_position:
+#     pyautogui.click(spicy_position)
+# else:
+#     print("无法找到拌粉选项")
+# time.sleep(1)
+
+guige_img = "规格.png"
+tianjia_img = "添加.png"
+favorite_position  = pyautogui.locateCenterOnScreen(guige_img)
+favorite_position1  = pyautogui.locateCenterOnScreen(tianjia_img)
+if favorite_position:
+    pyautogui.click(favorite_position)
+    print("已点击规格")
+elif favorite_position1:
+    pyautogui.click(favorite_position1)
+    print("已点击添加")
 else:
-    print("无法找到拌粉选项")
+    print("无法找到对应按钮")
+
+time.sleep(1)
+#选择口味
+zhongla_img = "6.png"
+
+favorite_position  = pyautogui.locateCenterOnScreen(zhongla_img)
+if favorite_position:
+    pyautogui.click(favorite_position)
+    print("已点击重辣")
+else:
+    print("无法找到对应按钮")
+
 time.sleep(1)
 
-# 识别图片7.png#加入购物车
+# 识别图片7.png加入购物车
 cart_image = "7.png"
 cart_position = pyautogui.locateCenterOnScreen(cart_image)
 if cart_position:
@@ -115,5 +141,16 @@ if finish_position:
 else:
     print("无法找到选好了按钮")
 
-time.sleep(2)
-time.sleep(2)
+
+target_time = "12:00"
+while time.strftime("%H:%M") != target_time:
+    time.sleep(0.1)  # 每0.1秒检查一次
+# 识别图片8.png#选好了
+zhifu_image = "支付.png"
+finish_position = pyautogui.locateCenterOnScreen(zhifu_image)
+if finish_position:
+    pyautogui.click(finish_position)
+else:
+    print("无法找到选好了按钮")
+print("吃饭吃饭吃饭吃")
+
